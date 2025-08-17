@@ -1,83 +1,75 @@
-# 📊 Telecom X – Parte 2: Predicción de Cancelación (Churn)
+Challenge Telecom – Parte 2: Predicción de Cancelación de Clientes (Churn)
+Descripción
 
-Este proyecto corresponde a la segunda parte del desafío de **Alura**: desarrollar modelos predictivos para anticipar la cancelación de clientes (*churn*) en una empresa de telecomunicaciones.
+Este proyecto corresponde a la segunda parte del desafío Telecom X del programa Alura + Oracle Next Education.
+El objetivo fue construir modelos de machine learning para predecir la cancelación de clientes (churn), utilizando los datos tratados en la primera etapa.
 
----
+El desarrollo se realizó en Google Colab, partiendo del archivo datos_tratados.csv.
 
-## 🚀 Objetivo
-Construir un pipeline de Machine Learning capaz de:
-- Identificar qué clientes tienen mayor probabilidad de cancelar.  
-- Analizar los factores más relevantes que influyen en la cancelación.  
-- Proponer estrategias de retención basadas en los resultados obtenidos.  
+Flujo de trabajo
 
----
+Carga de datos tratados: Importación del dataset trabajado en la Parte 1.
 
-## 📂 Flujo del Proyecto
-1. **Carga de datos tratados**  
-   Se parte del dataset ya limpiado y transformado en la Parte 1 del desafío.  
+Preprocesamiento:
 
-2. **Preprocesamiento**  
-   - Eliminación de columnas irrelevantes (`customerID`).  
-   - Codificación de variables categóricas (One-Hot Encoding).  
-   - Verificación y balanceo de clases (SMOTE).  
-   - Normalización/Estandarización (para modelos basados en distancia).  
+Eliminación de columnas irrelevantes.
 
-3. **Análisis exploratorio dirigido**  
-   - Correlación entre variables y churn.  
-   - Relación entre *antigüedad*, *cargos* y cancelación.  
+Codificación de variables categóricas (One-Hot Encoding).
 
-4. **Modelado**  
-   - Modelos utilizados:  
-     - **Regresión Logística** (sensible a la escala, requiere normalización).  
-     - **Random Forest** (modelo basado en árboles, no sensible a la escala).  
+Balanceo de clases con SMOTE.
 
-5. **Evaluación de Modelos**  
-   Métricas aplicadas:  
-   - Exactitud (Accuracy)  
-   - Precisión  
-   - Recall  
-   - F1-score  
-   - Matriz de confusión  
+Normalización aplicada solo en modelos sensibles a la escala.
 
-6. **Interpretación**  
-   - Regresión Logística: análisis de coeficientes.  
-   - Random Forest: importancia de variables.  
+Modelado:
 
-7. **Conclusiones y Recomendaciones**  
-   - Los clientes más nuevos presentan mayor riesgo de cancelar.  
-   - Los cargos mensuales altos incrementan la probabilidad de churn.  
-   - Los contratos mensuales y la facturación online son factores asociados a cancelación.  
-   - Estrategias sugeridas:  
-     - Incentivar contratos a largo plazo.  
-     - Mejorar experiencia de facturación digital.  
-     - Ofrecer beneficios a clientes en sus primeros meses.  
+Regresión Logística
 
----
+Random Forest
 
-## 📈 Resultados Principales
-- **F1-Score en test**:  
-  - Regresión Logística: ~0.58  
-  - Random Forest: ~0.59  
-- Ambos modelos presentaron **overfitting**, con mejor rendimiento en entrenamiento que en prueba.  
+Evaluación:
 
----
+Exactitud, Precisión, Recall, F1-score
 
-## 🔧 Próximos Pasos
-- Optimización de hiperparámetros (GridSearchCV / RandomizedSearchCV).  
-- Uso de pipelines con validación cruzada + SMOTE integrado.  
-- Ajuste del umbral de decisión para mejorar recall.  
-- Implementación de modelos más robustos (XGBoost, LightGBM).  
+Matriz de confusión
 
----
+Interpretación de variables:
 
-## 📌 Requisitos
-- Python 3.8+  
-- Librerías principales:  
-  - `pandas`, `numpy`, `matplotlib`, `seaborn`  
-  - `scikit-learn`  
-  - `imblearn`  
+Coeficientes en la Regresión Logística
 
----
+Importancia de características en Random Forest
 
-## 👤 Autor
-Proyecto desarrollado por **Jhelson Yucra** como parte del desafío *Alura – Machine Learning*.
+Resultados
+
+Ambos modelos mostraron señales de sobreajuste (overfitting).
+
+Random Forest alcanzó un desempeño ligeramente superior en pruebas.
+
+Las variables más influyentes en la predicción fueron:
+
+Tipo de contrato
+
+Cargos mensuales
+
+Antigüedad del cliente
+
+Tecnologías utilizadas
+
+Python
+
+Pandas, Numpy, Matplotlib, Seaborn
+
+Scikit-learn
+
+Imbalanced-learn (SMOTE)
+
+Conclusiones
+
+El análisis permitió identificar los principales factores de la cancelación.
+Algunas estrategias sugeridas para la retención de clientes incluyen:
+
+Incentivar contratos de mayor plazo.
+
+Revisar políticas de cobro en clientes con cargos elevados.
+
+Diseñar programas de fidelización para usuarios con poca antigüedad.
+
